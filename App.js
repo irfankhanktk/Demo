@@ -6,13 +6,13 @@ const App = () => {
   const [radius, setRadius] = React.useState(100);
   return (
     <View style={{ flex: 1 }}>
-      <MapDemo radius={radius} />
+      {/* <MapDemo radius={radius} />
       <Text style={{}}>{Math.floor(radius / 1000)} km</Text>
       <Slider
         style={{
         }}
         minimumValue={500}
-        maximumValue={3000}
+        maximumValue={100000}
         value={radius}
         minimumTrackTintColor={'red'}
         thumbTintColor={'blue'}
@@ -20,8 +20,8 @@ const App = () => {
         onValueChange={value => {
           setRadius(value);
         }}
-      />
-      {/* <AnimationDemo /> */}
+      /> */}
+      <AnimationDemo />
     </View>
   );
 }

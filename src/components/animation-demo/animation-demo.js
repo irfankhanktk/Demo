@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated, Easing, Text, View,StyleSheet} from 'react-native';
+import { Animated, Easing, Text, View,StyleSheet, TouchableOpacity} from 'react-native';
 
 export const AnimationDemo = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
-  const marginLeft =fadeAnim.interpolate({
+  const marginTop =fadeAnim.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 300]
   })
@@ -23,9 +23,9 @@ export const AnimationDemo = () => {
     inputRange: [0, 0.5, 1],
     outputRange: ['0deg', '180deg', '0deg']
   })
-  React.useEffect(()=>{
-        animate();
-  },[])
+  // React.useEffect(()=>{
+  //       animate();
+  // },[])
 //below is timing example
   const animate= ()=> {
     fadeAnim.setValue(0)
@@ -33,10 +33,10 @@ export const AnimationDemo = () => {
       fadeAnim,
       {
         toValue: 1,
-        duration: 2000,
-        easing: Easing.linear
+        duration: 1000,
+        easing: Easing.linear,
       }
-    ).start(() => animate())
+    ).start();
   }
 
 //below is spring example
@@ -57,9 +57,17 @@ export const AnimationDemo = () => {
 
   return (
       <View style={styles.container}>
-        <Animated.View
+        <Animated.View style={{
+            marginTop:marginTop,
+            alignSelf:'center',width:'90%',backgroundColor:'blue',
+            }}>
+        <TouchableOpacity onPress={animate} style={{alignSelf:'center',width:'90%',backgroundColor:'blue',paddingVertical:10,alignItems:'center'}}>
+          <Text style={{color:'#fff'}}>SignUp</Text>
+        </TouchableOpacity>
+        </Animated.View>
+        {/* <Animated.View
           style={{
-            top:marginLeft,
+            marginTop:marginLeft,
             height: 30,
             width: 40,
             backgroundColor: 'red'}} />
@@ -92,7 +100,7 @@ export const AnimationDemo = () => {
             width: 40,
             backgroundColor: 'black'}}>
           <Text style={{color: 'white'}}>Hello from TransformX</Text>
-        </Animated.View>
+        </Animated.View> */}
       </View>
   );
 }
