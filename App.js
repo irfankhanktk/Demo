@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Animated, Easing, Text, View, StyleSheet } from 'react-native';
-import { AnimationDemo, MapDemo } from './src/components';
+import { AnimationDemo, CarouselAnimation, MapDemo, MusicPlayer } from './src/components';
 import Slider from '@react-native-community/slider'
 const App = () => {
   const [radius, setRadius] = React.useState(100);
@@ -21,7 +21,9 @@ const App = () => {
           setRadius(value);
         }}
       /> */}
-      <AnimationDemo />
+      {/* <AnimationDemo /> */}
+      <CarouselAnimation/>
+      {/* <MusicPlayer/> */}
     </View>
   );
 }
